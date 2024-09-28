@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de Asincronismo</title>
+</head>
+<body>
+    <h1>Ejemplo Ajax</h1>
+    <div id="respuesta">Acá va a estar la respuesta Ajax</div>
+
+    <script>
+        //const XMLHttpRequest = require('xmlhttprequest')
+        const API = 'https://api.escuelajs.co/api/v1'
+        const xhttp = new XMLHttpRequest();
+        xhttp.open( 'GET', 'urlApi', true );
+        xhttp.onreadystatechange = function (event){
+            if(xhttp.readyState == 4){ // petición finalizada
+                if(xhttp.status == 200){ // documento encontrado, respuesta OK
+                    document.querySelector('#respuesta').innerHTML = xhttp.responseText;
+                } else{
+                    document.querySelector('#respuesta').innerHTML = 'petición errónea';
+                }
+            } else{
+                document.querySelector('#respuesta').innerHTML = 'espere...';
+            }
+        }
+        xhttp.send( );
+    </script>
+</body>
+</html>

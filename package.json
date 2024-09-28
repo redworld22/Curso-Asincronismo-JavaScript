@@ -1,0 +1,25 @@
+{
+  "name": "curso-asincronismo-javascript",
+  "version": "1.0.0",
+  "description": "Prácticas y ejercicios del curso de asincronismo con JavaScript de Platzi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/redworld22/Curso-Asincronismo-JavaScript.git"
+  },
+  "keywords": [
+    "javascript"
+  ],
+  "author": "Red Robles redworld22@hotmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/redworld22/Curso-Asincronismo-JavaScript/issues"
+  },
+  "homepage": "https://github.com/redworld22/Curso-Asincronismo-JavaScript#readme",
+  "dependencies": {
+    "xmlhttprequest": "^1.8.0"
+  }
+}
