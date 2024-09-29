@@ -21,6 +21,7 @@ function fetchData(urlApi, callback) {
 // este es parte de los recursos que me entrega xhttp, para escuchar diferentes estados que tiene la solicitud y con esto saber cuando está disponible la información. Le pasamos una función, la cual recibe un evento. 
 // en este metodo Almacena el nombre de la función que se ejecutará cuando el objeto XMLHttpRequest cambie de estado
     xhttp.onreadystatechange = function(event){
+
         // dentro de la función lo que hacemos es validar si la llamada está en estado de completada
         // el atributo readyState define el estado del objeto XMLHttpRequest
         //0 No inicializado
@@ -29,19 +30,24 @@ function fetchData(urlApi, callback) {
         //3 interactuando
         //4 completado
         if(xhttp.readyState === 4){
+
             // Validamos el status sobre valor y tipo, si nuestro servidor respondió de manera correcta (en este caso sobre valor 200 porque esto quiere decir que la solicitud ha sido correcta y con ello poder obtener la infomación)
             // si la respuesta de la API es exitosa (200 Ok)
             if(xhttp.status === 200){
+
                 // ahora utilizamos un callback para pasar la información, el primer elemento se lo pasamos como un valor nulo y el segundo elemento va a ser una transformación de la información, el JSON es para convertir en un objeto el texto que nos envía el servidor
                 //se ejecuta el callback recibiendo como argumentos un objeto, como la respuesta de la API es un texto plano, el metodo JSON.parse tranformará este texto en un objeto.
                 //El atributo devuelve un DOMString que contiene la  respuesta a la consulta como un texto o null si la consulta no tuvo exito o aun no ha sido completada.
                 callback(null, JSON.parse(xhttp.responseText))
-            } // la segunda validación if la dejamos sin un else
+            } 
+            // la segunda validación if la dejamos sin un else
              // si la respuesta de la API no es exitosa se captura el error
         } else {
+
             // Este else es para el manejo de la información cuando tengamos un error. Al error le pasamos un nombre y en este caso la api porque es desde donde vendría el error en dado caso
             // Se inicializa un objeto de tipo Error donde se le envian como argumentos un mensaje de error y la URL de la API para conocer en dónde se produjo el error
-            const error = new Error('Error + urlApi');
+            const error = new Error('Error ' + urlApi);
+            
             // Y lo que retornamos es el callback con el error y el valor nulo porque no estoy retornando ningún dato si ocurre el error.
             // Se ejecuta el callback recibiendo como argumentos el error y null debido a que no se pudo obtener el objeto
             return callback(error, null);
