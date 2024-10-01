@@ -20,6 +20,8 @@
   },
   "homepage": "https://github.com/redworld22/Curso-Asincronismo-JavaScript#readme",
   "dependencies": {
+    "node-fetch": "^3.3.2",
     "xmlhttprequest": "^1.8.0"
-  }
+  },
+  "type": "module"
 }
